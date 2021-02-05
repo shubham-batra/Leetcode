@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        // Iterate through the Vector (Backwards)
+        for(int i = nums.size()-1; i>0; i--) {
+        // If current # is equal to next #, then delete
+            if(nums[i]==nums[i-1]) {
+                nums.erase(nums.begin()+i);
+            }
+        }
+       return(nums.size());
+    }
+};
