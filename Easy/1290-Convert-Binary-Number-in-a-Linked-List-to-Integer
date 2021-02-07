@@ -1,0 +1,33 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    int getDecimalValue(ListNode* head) {
+        
+        std::vector<int> cont;
+        string num;
+        
+        while(head!=NULL) { // Push all node values into a container
+            cont.push_back(head->val);
+            head = head->next;
+        }
+        
+        for(int i = 0; i<cont.size(); i++) { // Loop to convert numbers to a string
+          num = num + to_string(cont[i]);
+        }
+        
+        int dec = std::stoi(num, nullptr, 2); // Can use stoi to convert from string to int
+        return dec;
+                
+        
+        return 0;
+    }
+};
