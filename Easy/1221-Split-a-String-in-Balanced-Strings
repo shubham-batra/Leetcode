@@ -1,0 +1,25 @@
+class Solution {
+public:
+    
+    // Idea: Keep a counter for left and right instances as you iterate through the string. If they are equal, then add to the total counter. At the end, simply return the counter which will be the maximum amount of balanced strings. 
+    
+    
+    int balancedStringSplit(string s) {
+        int total = 0;
+        int left = 0;
+        int right = 0;
+        
+        for(int i = 0; i<s.size(); i++) {
+            if(s[i]=='L') {
+                left++;
+            }
+            else if(s[i]=='R') {
+                right++;
+            }
+            if(left==right) {
+                total++;
+            }
+        }
+        return total;
+    }
+}; 
