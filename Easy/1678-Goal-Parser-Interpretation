@@ -1,0 +1,22 @@
+class Solution {
+public:
+    string interpret(string command) {
+        string finalstring = "";
+        
+        for(int i = 0; i<command.size(); i++) { // Check G, if it is there, then simply push back
+            if(command[i]=='G') {
+                finalstring+=command[i];
+            }
+            else if(command[i+1]==')' && (command[i]=='(')) { // Check current index and index+1 is true to push 'o' 
+                finalstring+='o';
+                i+=1;
+            }
+            else { // Otherwise, simply push back "al"
+                finalstring+="al";
+                i+=3;
+            }
+            
+        }
+        return finalstring;
+    }
+};
