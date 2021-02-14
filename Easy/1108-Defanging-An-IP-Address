@@ -1,0 +1,15 @@
+class Solution {
+public:
+    string defangIPaddr(string address) {
+        string check = "";
+        for(int i = 0; i<address.size(); i++) {
+            if(address[i] == '.') { // Make sure character is in single quotes, when comparing index location to character
+                check = check + "[.]";
+            }
+            else {
+                check = check + address[i];
+            }
+        }
+        return check;
+    }
+};
