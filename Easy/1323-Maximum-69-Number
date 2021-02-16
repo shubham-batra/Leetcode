@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int maximum69Number (int num) {
+        string numb = to_string(num); // Convert given int to string
+        string fstr = "";
+        int tracker = 0;
+        
+        for(int i = 0; i<numb.size(); i++) { // Always push back 9
+          if(numb[i]=='9') {
+              fstr.push_back('9');
+          }
+          else if((numb[i]=='6') && (tracker==0)) { // Only change the first 6 to 9
+              fstr.push_back('9');
+              tracker++;
+          }
+          else {  // Otherwise, just push back 6
+              fstr.push_back('6');
+          }
+        }
+        
+       int answer = stoi(fstr); // Convert string back to int to return
+       return answer; 
+    }
+};
