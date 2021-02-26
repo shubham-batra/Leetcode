@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        int max = 0; // the index to retrieve number
+        int highest = 0; // Store highest number
+        std::vector<int> sorted; // New array to put sorted elements
+        
+        for(int i=0; i<nums.size(); i++) {
+            sorted.push_back(nums[i]); // push elements into new array
+        }
+        
+        std::sort(sorted.begin(),sorted.end()); // sort elements
+        max = sorted.size()-k; // find right index
+        
+        for(int i = 0; i<sorted.size(); i++) {
+           if(max==i) { 
+               highest = sorted[i]; // if index matches right i, assign to highest and then return
+           }
+        }
+        return highest;
+    }
+};
