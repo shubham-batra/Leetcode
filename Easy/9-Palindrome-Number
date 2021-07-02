@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        // Variable to keep track of string
+        int count = 0;
+        // Convert int to string
+        std::string x2 = to_string(x);
+        // Go through string
+        for(int i = 0; i<x2.size()-1; i++) {
+            if(x2[i]!=x2[x2.size()-1-i]) {
+                 count++;
+            }
+        }
+        // Return result
+        if(count>0) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+};
