@@ -1,0 +1,17 @@
+// nlog(n) solution
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int missNum;
+        // Sort numbers
+        std::sort(nums.begin(), nums.end());
+        for(int i = 0; i<nums.size(); i++) {
+            // Once there is a discrepency, break out of loop and return that number
+            if(nums[i]!=i) {
+                missNum=i;
+                break;
+            }
+        }
+        return missNum;
+    }
+};
