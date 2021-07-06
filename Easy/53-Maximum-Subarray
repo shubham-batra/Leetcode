@@ -1,0 +1,25 @@
+// O(n^2) solution
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        // Case if array has a size of one, then just return.
+        if(nums.size()==1) {
+            return nums[0];
+        }
+        // Keep a running total, instantiate at low number to account for negative numbers
+        int total = -1000;
+        // Iterate through the array
+        for(int i = 0; i<nums.size(); i++) {
+            // Temp is here because it is reset at each loop
+            int temp = 0;
+            for(int j = i; j<nums.size(); j++) {
+                temp+=nums[j];
+                if(temp>total) {
+                    total = temp;
+                }
+                
+            }
+        }
+        return total;
+    }
+};
