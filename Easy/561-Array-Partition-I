@@ -1,0 +1,17 @@
+// O(nlogn) solution
+
+// Explanation: In this problem, we calculate the max sum of the given array. We make pairs for every element in the array. The goal is to take the min of each pair and add it all up. We need to return the largest sum.
+// Idea: The most efficient Greedy solution is to simply sort the array and make pairs from there. From each pair there, we take the lowest number and dd everything up to get the max sum. This is the best solution. 
+
+class Solution {
+public:
+    int arrayPairSum(vector<int>& nums) {
+        int sum = 0;
+        sort(nums.begin(), nums.end());
+        
+        for(int i = 0; i<nums.size(); i+=2) {
+            sum+=nums[i];
+        }
+        return sum;
+    }
+};
