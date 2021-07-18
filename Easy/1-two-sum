@@ -1,3 +1,21 @@
+// O(n^2) solution (Alternative)
+// This solution is quite simple. We basically have two pointers that scan through the whole array. i starts before j and j continues on incrementing before i. If no match is found, i increments. This solution is in no way optimal. Once a match is found, the answer is returned in a vector.
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> solution;
+        for(int i = 0; i<nums.size()-1; i++) {
+            for(int j = i+1; j<nums.size(); j++) {
+                if(nums[i]+nums[j]==target) {
+                    solution.push_back(i);
+                    solution.push_back(j);
+                }
+            }
+        }
+        return solution;
+    }
+};
+
 
 // O(n^2) solution
 class Solution {
