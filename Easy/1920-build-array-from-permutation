@@ -1,0 +1,15 @@
+// Solution O(n)
+// Idea: Simply create a new array, then store the first number in a temp variable and then locate the second number using the temp and then push back the second number into the array.
+
+class Solution {
+public:
+    vector<int> buildArray(vector<int>& nums) {
+        vector<int> solution;
+        for(int i = 0; i<nums.size(); i++) {
+            int first = nums[i];
+            int second = nums[first];
+            solution.push_back(second);
+        }
+        return solution;
+    }
+};
