@@ -1,0 +1,28 @@
+// Unsolved Answer, need to fix
+
+class Solution {
+public:
+    bool isMonotonic(vector<int>& nums) {
+        
+        // Assume initially that the array is increasing and decreasing at the same time
+        bool increasing = true;
+        bool decreasing = true;
+        
+        for(int i = 0; i<nums.size()-1; i++) {
+            // Decreasing Case
+            if(nums[i]>nums[i+1]) {
+                increasing = false;
+            }
+            // Increasing Case
+            if(nums[i]<nums[i+1]) {
+                decreasing = false;
+            }
+            if((increasing && decreasing) == false) {
+                return false;
+            }
+        }
+        
+       return true;
+        
+    }
+};
