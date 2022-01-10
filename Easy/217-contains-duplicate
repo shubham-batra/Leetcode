@@ -1,3 +1,23 @@
+// O(n) solution
+
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_set<int> set;
+        
+        for(int i = 0; i<nums.size(); i++) {
+            // Check if current location matches value in set. If not unique, then return true
+            if(set.find(nums[i])!=set.end()) {
+                return true;
+            }
+            // Insert element into the array
+            set.insert(nums[i]);
+        }
+        return false;
+    }
+};
+
+
 // O(n log n) Solution
 class Solution {
 public:
