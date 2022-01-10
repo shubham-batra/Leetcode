@@ -1,4 +1,4 @@
-// O(n) Solution
+// O(n log n) Solution
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
