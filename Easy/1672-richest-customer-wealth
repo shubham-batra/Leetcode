@@ -1,0 +1,21 @@
+// O(N^2) Solution
+
+class Solution {
+public:
+    int maximumWealth(vector<vector<int>>& accounts) {
+        int counter = 0; // Wealth of richest customer
+        int tempCounter = 0; // temp wealth
+        
+        for(int i = 0; i<accounts.size(); i++) {
+            tempCounter = 0;
+            for(int j = 0; j<accounts[i].size(); j++) {
+                tempCounter+=accounts[i][j];
+                if(tempCounter>counter) {
+                    counter = tempCounter;
+                }
+                cout<<tempCounter<<endl;
+            }
+        }
+        return counter;
+    }
+};
