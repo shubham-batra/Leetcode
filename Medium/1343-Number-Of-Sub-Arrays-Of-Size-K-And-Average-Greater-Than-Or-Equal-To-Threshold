@@ -1,0 +1,34 @@
+//Time Complexity: O(n)
+
+class Solution {
+public:
+    int numOfSubarrays(vector<int>& arr, int k, int threshold) {
+        
+        vector<int> current;
+        double tmpCount = 0;
+        int finCount = 0;
+        
+        // First Window
+        for(int i = 0; i<k; i++) {
+            current.push_back(arr[i]);
+            tmpCount+=arr[i];
+        }
+        if((tmpCount/k)>=threshold) {
+            finCount++;
+        }
+        
+        
+        // Sliding Windows
+        for(int i = k; i<arr.size(); i++) {
+            tmpCount-=arr[i-k];
+            tmpCount+=arr[i];
+            
+            if((tmpCount/k)>=threshold) {
+                finCount++;
+            }
+            
+            
+        }
+        return finCount;
+    }
+};
