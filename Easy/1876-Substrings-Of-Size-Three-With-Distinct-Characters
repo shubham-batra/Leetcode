@@ -1,0 +1,41 @@
+// Time Complexity (O(n) + O(logn) = O(logn))
+
+class Solution {
+public:
+    int countGoodSubstrings(string s) {
+        
+        string check = "";
+        int counter = 0;
+        set<char> val;
+        
+        // Push first window into check
+        for(int i = 0; i<3; i++) {
+            check.push_back(s[i]);
+            val.insert(s[i]);
+            
+            if(val.size()==3) {
+                counter++;
+            }
+        }
+        
+        val.clear();
+        
+        // Sliding window loop
+        for(int i = 3; i<s.size(); i++) {
+            // Need to make sure to clear set each time
+            val.clear();
+            check[0]=s[i];
+            check[1]=s[i-1];
+            check[2]=s[i-2];
+            
+            val.insert(check[0]);
+            val.insert(check[1]);
+            val.insert(check[2]);
+            
+            if(val.size()==3) {
+                counter++;
+            }
+        }
+        return counter;
+    }
+};
