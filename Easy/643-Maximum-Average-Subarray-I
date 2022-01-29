@@ -1,0 +1,32 @@
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
+
+class Solution {
+public:
+    double findMaxAverage(vector<int>& nums, int k) {
+        
+        double currMax = 0;
+        double tempSum = 0;
+        
+        // First, find the initial sum for the first "window"
+        for(int i = 0; i<k; i++) {
+            currMax+=nums[i];
+        }
+        
+        tempSum = currMax;
+        // Next, move window to the right, checking if new sum is larger than current sum
+        for(int i = k; i<nums.size(); i++) {
+            tempSum+=nums[i];
+            tempSum = tempSum - nums[i-k];
+            
+            if(tempSum>currMax) {
+                currMax=tempSum;
+            }
+        }
+        
+        // Return answer, dividing by k 
+        return currMax/k;
+        
+    }
+};
