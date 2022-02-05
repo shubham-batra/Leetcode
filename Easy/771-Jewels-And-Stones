@@ -1,0 +1,22 @@
+// O(n) solution
+
+class Solution {
+public:
+    int numJewelsInStones(string J, string S) {
+        
+        int counter = 0;
+        
+        // Make a set containing all unique jewels
+        unordered_set<char> jewels;
+        for(int i = 0; i<J.size(); i++) {
+            jewels.insert(J[i]);
+        }
+        // Check if S is contained in a set or not. If it is contained in a set, then increment counter
+        for(int i = 0; i<S.size(); i++) {
+            if(jewels.find(S[i]) != jewels.end()) {
+                counter++;
+            }
+        }
+        return counter;
+    }
+};
