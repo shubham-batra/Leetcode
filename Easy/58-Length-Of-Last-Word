@@ -1,0 +1,21 @@
+// O(N) solution
+// Strategy: Start from the front of the string. Create two variables. A current word length and a last word length. If there is a space, the currwordlen equals 0. Otherwise, increment the current word length and set lastwordlen to the currentwordlen. At end of loop, simply return currwordlen;
+
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        int currwordlen = 0;
+        int lastwordlen = 0;
+        
+        for(int i = 0; i<s.size(); i++) {
+            if(isspace(s[i])) {
+                currwordlen = 0;
+            }
+            else {
+                currwordlen++;
+                lastwordlen = currwordlen;
+            }
+        }
+        return lastwordlen;
+    }
+};
