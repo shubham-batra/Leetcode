@@ -1,0 +1,41 @@
+// O(n) solution
+
+class Solution {
+public:
+    bool lemonadeChange(vector<int>& bills) {
+        // Keep track of each bill
+        int five = 0;
+        int ten = 0;
+        int twenty = 0;
+        
+        for(int i = 0; i<bills.size(); i++) {
+            // Case for receiving five
+            if(bills[i]==5) {
+                five++;
+            }
+            // Case for receiving ten
+            else if(bills[i]==10) {
+                ten++;
+                if(five==0) {
+                    return false;
+                }
+                five--;
+            }
+            // Case for receving twenty
+            else {
+                twenty++;
+                if(five>=1 && ten>=1) {
+                    ten--;
+                    five--;
+                }
+                else if (five>=3) {
+                    five-=3;
+                }
+                else {
+                    return false;
+                }
+            }   
+        }
+        return true;
+    }
+};
