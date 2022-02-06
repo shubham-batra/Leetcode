@@ -1,0 +1,28 @@
+// O(N) runtime
+
+class Solution {
+public:
+    int subtractProductAndSum(int n) {
+        // Vector to store digits
+        vector<int> digits;
+        // Split the int into the vector
+        while(n>0) {
+            int a = n%10;
+            digits.push_back(a);
+            n = n/10;
+        }
+        // Get product
+        int product = 1;
+        for(int i = 0; i<digits.size(); i++) {
+            product*=digits[i];
+        }
+        // Get sum
+        int sum = 0;
+        for(int i = 0; i<digits.size(); i++) {
+            sum+=digits[i];
+        }
+        // Return diffrence
+        int difference = product-sum;
+        return difference;
+    }
+};
